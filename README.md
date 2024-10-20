@@ -2,6 +2,8 @@
 
 A Home Energy Monitoring System developed during HackLite 2.0
 
+Working video is added in main branch
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
