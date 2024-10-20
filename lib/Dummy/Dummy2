@@ -1,0 +1,16 @@
+import 'package:flutter/material.dart';
+import 'package:fl_chart/fl_chart.dart';
+
+void main() => runApp(SensorChartApp());
+
+class SensorChartApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Sensor Data Charts',
+      theme: ThemeData(primarySwatch: Colors.green),
+      home: SensorChartScreen(),
+    );
+  }
+}
+

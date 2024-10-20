@@ -1,0 +1,70 @@
+SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: Text(
+                '!! ANNOUNCEMENTS !!',
+                style: TextStyle(
+                    color: Colors.teal.shade900, fontWeight: FontWeight.bold),
+              ),
+            ),
+            StreamBuilder<QuerySnapshot>(
+              stream: FirebaseFirestore.instance
+                  .collection('announcements')
+                  .orderBy('timestamp', descending: true)
+                  .limit(2)
+                  .snapshots(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Center(child: CircularProgressIndicator());
+                }
+                if (snapshot.hasError) {
+                  return Center(child: Text('Error: ${snapshot.error}'));
+                }
+                if (!snapshot.hasData || snapshot.data?.docs.isEmpty == true) {
+                  return Center(child: Text('No announcements found.'));
+                }
+                return Container(
+                  margin: EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black),
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                  padding: EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: snapshot.data!.docs.map((doc) {
+                      return ListTile(
+                        title: Text(doc['title']),
+                        subtitle: Text(doc['content']),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  PreviousAnnouncementsScreen(),
+                            ),
+                          );
+                        },
+                      );
+                    }).toList(),
+                  ),
+                );
+              },
+            ),
+            ElevatedButton(
+                style: BtnStyle(),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => FloorPlanWidget()));
+                },
+                child: Text(
+                  'Floor PLans',
+                  style: buttonTstlye(),
+                )),
+          ],
+        ),
+      ),
