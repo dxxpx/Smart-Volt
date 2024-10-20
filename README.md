@@ -1,16 +1,20 @@
 # smartvolt
 
-A Home Energy Montioring Application developed during HackLite 2.0
+The intel libraries used are:-
+ 1) tensorflow-intel, imported normally as tensorflow
+ 2) scikit-learn-intelex, patched globally
+ 3) modin imported as modin.pandas
+ 4) Intel Math Kernel accelerated Numpy, imported normally as Numpy. Use pip install mkl-service
+    
+The models with trained data is saved as pickle file while also uploaded as .py and .ipynb file along with their corresponding datasets
+Algorithms used - 
+1) XGBoostClassifier with gridsearchcv to find best hyperparameters
+2) Random Forest Classifier with gridsearchcv to find best hyperparameters
+3) Tensorflow Keras LSTM with earlystop patience 3 and 76740 predictions when tested
 
-## Getting Started
+Example input
+for predictive maintenance model - {     "Air temperature":[298.3],     "Process temperature":[308.5],     "Rotational speed":[1629],     "Torque":[37.1],     "Vibration Levels ":[33.43548387],     "Operational Hours":[68] }
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+The LSTM model will generate a csv file as output when run
