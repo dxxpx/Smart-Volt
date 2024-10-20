@@ -19,7 +19,7 @@ class _AddMachineScreenState extends State<AddMachineScreen> {
       ScanResult result = await BarcodeScanner.scan();
       setState(() {
         _scanResult = result.rawContent;
-        // For simplicity, assume the QR code contains token and pin in the format "token:pin"
+        // For simplicity, assume the QR code contains token and pin in the format "identify all high power consumption equipment "
         List<String> details = _scanResult.split(':');
         if (details.length == 2) {
           _authToken = details[0];
