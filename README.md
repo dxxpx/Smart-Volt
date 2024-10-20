@@ -2,7 +2,7 @@
 
 A Home Energy Monitoring System developed during HackLite 2.0
 
-Working video is added in main branch
+Working video drive link is: https://drive.google.com/file/d/1y_0oGwH95tJue7VySaFkdVqjiSxxVzb0/view?usp=sharing
 
 ## Getting Started
 
