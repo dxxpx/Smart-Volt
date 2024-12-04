@@ -42,7 +42,7 @@ class DamagePredictionCharts extends StatelessWidget {
     0.25,
     0.24
   ];
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(

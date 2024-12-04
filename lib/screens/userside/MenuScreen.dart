@@ -10,6 +10,7 @@ import 'AddMachine.dart';
 import 'AnnouncementsPageUser.dart';
 import '../charts/LinearChart.dart';
 import 'leaderboard_page.dart';
+import '../../tools/Menu-item.dart';
 
 class Menuscreen extends StatefulWidget {
   const Menuscreen({super.key});
@@ -30,277 +31,61 @@ class _MenuscreenState extends State<Menuscreen> {
               // feedback, announcements
               Row(
                 children: [
-                  Expanded(
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => UserFeedbackScreen(),
-                            ));
-                      },
-                      child: Container(
-                        margin: EdgeInsets.all(5),
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15.0),
-                            color: Colors.blue.shade50),
-                        child: Column(
-                          children: [
-                            Icon(
-                              Icons.add_comment_rounded,
-                              size: 35,
-                            ),
-                            SizedBox(height: 10),
-                            Text(
-                              "FEEDBACKS",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => AnnouncementsUser(),
-                            ));
-                      },
-                      child: Container(
-                        margin: EdgeInsets.all(5),
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15.0),
-                            color: Colors.blue.shade50),
-                        child: Column(
-                          children: [
-                            Icon(
-                              Icons.speaker_sharp,
-                              size: 35,
-                            ),
-                            SizedBox(height: 10),
-                            Text(
-                              "ANNOUNCEMENTS",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  )
+                  Menu_item(
+                      context: context,
+                      navigate_to: UserFeedbackScreen(),
+                      item_name: 'FEEDBACKS',
+                      icon: Icons.feedback),
+                  Menu_item(
+                      context: context,
+                      navigate_to: AnnouncementsUser(),
+                      item_name: 'ANNOUNCEMENTS',
+                      icon: Icons.speaker_sharp),
                 ],
               ),
               //Set Target , predictive Maintainance
               Row(
                 children: [
-                  Expanded(
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => AddMachineScreen(),
-                            ));
-                      },
-                      child: Container(
-                        margin: EdgeInsets.all(5),
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15.0),
-                            color: Colors.blue.shade50),
-                        child: Column(
-                          children: [
-                            Icon(
-                              Icons.settings,
-                              size: 35,
-                            ),
-                            SizedBox(height: 10),
-                            Text(
-                              "PREDICT MAINTAINANCE",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => SetTargetPage(),
-                            ));
-                      },
-                      child: Container(
-                        margin: EdgeInsets.all(5),
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15.0),
-                            color: Colors.blue.shade50),
-                        child: Column(
-                          children: [
-                            Icon(
-                              Icons.pinch_sharp,
-                              size: 35,
-                            ),
-                            SizedBox(height: 10),
-                            Text(
-                              "SET TARGET",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  )
+                  Menu_item(
+                      context: context,
+                      navigate_to: AddMachineScreen(),
+                      item_name: 'PREDICT MAINTAINANCE',
+                      icon: Icons.settings),
+                  Menu_item(
+                      context: context,
+                      navigate_to: SetTargetPage(),
+                      item_name: 'SET TARGET',
+                      icon: Icons.pinch_sharp)
                 ],
               ),
               //Bill, electricians
               Row(
                 children: [
-                  Expanded(
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => TotalAmountPage(),
-                            ));
-                      },
-                      child: Container(
-                        margin: EdgeInsets.all(5),
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15.0),
-                            color: Colors.blue.shade50),
-                        child: Column(
-                          children: [
-                            Icon(
-                              Icons.monetization_on,
-                              size: 35,
-                            ),
-                            SizedBox(height: 10),
-                            Text(
-                              "CALCULATE BILL",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ViewElectriciansPage(),
-                            ));
-                      },
-                      child: Container(
-                        margin: EdgeInsets.all(5),
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15.0),
-                            color: Colors.blue.shade50),
-                        child: Column(
-                          children: [
-                            Icon(
-                              Icons.people,
-                              size: 35,
-                            ),
-                            SizedBox(height: 10),
-                            Text(
-                              "VIEW ELECTRICIANS",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  )
+                  Menu_item(
+                      context: context,
+                      navigate_to: TotalAmountPage(),
+                      item_name: 'CALCULATE BILL',
+                      icon: Icons.monetization_on),
+                  Menu_item(
+                      context: context,
+                      navigate_to: ViewElectriciansPage(),
+                      item_name: 'VIEW ELECTRICIANS',
+                      icon: Icons.people),
                 ],
               ),
               //View Rooms, Solar Devices
               Row(
                 children: [
-                  Expanded(
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ViewSolarDevicesPage(),
-                            ));
-                      },
-                      child: Container(
-                        margin: EdgeInsets.all(5),
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15.0),
-                            color: Colors.blue.shade50),
-                        child: Column(
-                          children: [
-                            Icon(
-                              Icons.solar_power,
-                              size: 35,
-                            ),
-                            SizedBox(height: 10),
-                            Text(
-                              "SOLAR DEVICES",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ViewRoomsPage(),
-                            ));
-                      },
-                      child: Container(
-                        margin: EdgeInsets.all(5),
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15.0),
-                            color: Colors.blue.shade50),
-                        child: Column(
-                          children: [
-                            Icon(
-                              Icons.home,
-                              size: 35,
-                            ),
-                            SizedBox(height: 10),
-                            Text(
-                              "VIEW ROOMS",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  )
+                  Menu_item(
+                      context: context,
+                      navigate_to: ViewSolarDevicesPage(),
+                      item_name: 'SOLAR DEVICES',
+                      icon: Icons.solar_power),
+                  Menu_item(
+                      context: context,
+                      navigate_to: ViewRoomsPage(),
+                      item_name: 'VIEW ROOMS',
+                      icon: Icons.home),
                 ],
               ),
               Row(

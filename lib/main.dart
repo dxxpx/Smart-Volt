@@ -32,9 +32,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     FirebaseMessaging.instance.subscribeToTopic('fire_alerts');
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Smart Volt',
-      home: SignInPage(),
+      home: LoginPage(),
       debugShowCheckedModeBanner: false,
     );
   }

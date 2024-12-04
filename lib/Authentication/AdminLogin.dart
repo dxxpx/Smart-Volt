@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../screens/adminSide/adminHome.dart';
+import '../screens/adminSide/adminHomeScreen.dart';
 
 class AdminLoginPage extends StatefulWidget {
   const AdminLoginPage({super.key});
@@ -10,13 +11,13 @@ class AdminLoginPage extends StatefulWidget {
 
 class _AdminLoginPageState extends State<AdminLoginPage> {
   final TextEditingController adminEmailController =
-      TextEditingController(text: "dxpka@gmail.com");
+      TextEditingController(text: "admin@gmail.com");
   final TextEditingController adminPasswordController =
       TextEditingController(text: "123456");
 
   Future<void> _adminsignIn() async {
     try {
-      if (adminEmailController.text == "dxpka@gmail.com" &&
+      if (adminEmailController.text == "admin@gmail.com" &&
           adminPasswordController.text == "123456") {
         UserCredential userCredential =
             await FirebaseAuth.instance.signInWithEmailAndPassword(
@@ -25,8 +26,8 @@ class _AdminLoginPageState extends State<AdminLoginPage> {
         );
 
         // Navigate to the category screen after successful login
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => adminHomePage()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => AdminHomeScreen()));
       } else {
         ScaffoldMessenger.of(context)
             .showSnackBar(SnackBar(content: Text('Invalid Login')));
@@ -40,7 +41,7 @@ class _AdminLoginPageState extends State<AdminLoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Sign in'),
+        title: const Text('Sign in'),
       ),
       body: SingleChildScrollView(
         child: Center(
@@ -53,26 +54,26 @@ class _AdminLoginPageState extends State<AdminLoginPage> {
                 children: [
                   TextFormField(
                     controller: adminEmailController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         labelText: "Enter your Email : ",
                         labelStyle: TextStyle(color: Colors.grey, fontSize: 20),
                         filled: true,
                         fillColor: Colors.white),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   TextFormField(
                     controller: adminPasswordController,
                     obscureText: true,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         labelText: "Enter your Password : ",
                         labelStyle: TextStyle(color: Colors.grey, fontSize: 20),
                         filled: true,
                         fillColor: Colors.white),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   ElevatedButton(
                       onPressed: _adminsignIn,
-                      child: Text('Admin Login',
+                      child: const Text('Admin Login',
                           style: TextStyle(fontWeight: FontWeight.bold)))
                 ],
               ),
